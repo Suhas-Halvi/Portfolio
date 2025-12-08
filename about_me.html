@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Me – Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --accent:#60a5fa;
+    --glass:rgba(255,255,255,0.06);
+    --glass-border:rgba(255,255,255,0.15);
+    --text:#e6eef8;
+  }
+
+  body {
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(145deg,#000000,#0a1a3c);
+    color:var(--text);
+  }
+
+  /* NAVBAR (same as About Course page) */
+  .navbar {
+    position: fixed; 
+    top:0; left:0; right:0;
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between;
+    padding:12px 30px;
+    background: rgba(15,23,42,0.9);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    z-index:1000;
+  }
+
+  .logo {
+    height:85px;
+  }
+
+  .nav-right a {
+    margin-left:22px;
+    text-decoration:none;
+    color:#cbd5e1;
+    font-weight:600;
+    transition:.2s;
+  }
+
+  .nav-right a:hover,
+  .nav-right .active {
+    color:var(--accent);
+  }
+
+  body { padding-top:130px; }
+
+  /* PAGE TITLE */
+  .section-title {
+    text-align:center;
+    color:var(--accent);
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:40px;
+  }
+
+  /* ABOUT SECTION */
+  .about-container {
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+  }
+
+  .intro-section {
+    display:flex;
+    gap:50px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  /* PHOTO BOX */
+  .photo-box {
+    width:380px;
+    height:420px;
+    border-radius:15px;
+    border:2px dashed var(--accent);
+    overflow:hidden;              /* make image follow rounded corners */
+    box-shadow:0 4px 18px rgba(0,0,0,0.4);
+  }
+
+ .photo-box img {
+  width:100%;
+  height:100%;
+  object-fit:cover;        /* fills the box */
+  object-position:50% 20%; /* move image slightly down (y value < 50%) */
+}
+
+
+  /* RIGHT SIDE TEXT BOXES */
+  .info-box,
+  .desc-box {
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.35);
+    margin-bottom:22px;
+  }
+
+  .info-box p {
+    margin:8px 0;
+    font-size:16px;
+    color:#dce7ff;
+  }
+
+  .desc-box {
+    line-height:1.7;
+    font-size:15px;
+    color:#d7e6ff;
+  }
+
+  /* BOTTOM GRID */
+  .bottom-grid {
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+  }
+
+  .card {
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.35);
+  }
+
+  .card h3 {
+    margin:0 0 12px 0;
+    font-size:20px;
+    color:var(--accent);
+  }
+
+  .card p {
+    margin:0;
+    color:#d7e6ff;
+    line-height:1.7;
+  }
+
+  @media(max-width:900px){
+    .intro-section {
+      flex-direction:column;
+      text-align:center;
+    }
+    .photo-box {
+      margin:auto;
+    }
+    .bottom-grid {
+      grid-template-columns:1fr;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <img src="kle_tech.png" class="logo" alt="logo">
+    <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="aboutcourse.html">About Course</a>
+        <a href="coursereflection.html">Course Reflection</a>
+        <a href="courseproject.html">Course Project</a>
+        <a href="about.html" class="active">About Us</a>
+    </div>
+</nav>
+
+<div class="about-container">
+
+    <h1 class="section-title">About Me</h1>
+
+    <div class="intro-section">
+
+        <!-- LEFT: PHOTO -->
+        <div class="photo-box">
+            <img src="photo.jpg" alt="Suhas Halvi">
+        </div>
+
+        <!-- RIGHT: DETAILS + DESCRIPTION -->
+        <div style="flex:1; min-width:300px;">
+
+            <div class="info-box">
+                <p><strong>Name:</strong> Suhas Halvi</p>
+                <p><strong>Roll No:</strong> 401</p>
+                <p><strong>USN:</strong> 01FE24BCS257</p>
+                <p><strong>Division:</strong> D</p>
+            </div>
+
+            <div class="desc-box">
+                I am an enthusiastic learner with a passion for technology, problem-solving, 
+                and creative thinking. I enjoy understanding complex concepts and turning ideas 
+                into meaningful solutions. My qualities include discipline, curiosity, teamwork, 
+                and a strong desire to grow. I believe in continuous learning and improving my 
+                skills each day to achieve my long-term goals.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GOALS & INTERESTS -->
+    <div class="bottom-grid">
+
+        <div class="card">
+            <h3>My Goals</h3>
+            <p>
+                • Master Data Structures & Algorithms.<br>
+                • Become a skilled full-stack developer.<br>
+                • Build impactful real-world projects.<br>
+                • Crack good placements and coding rounds.<br>
+                • Constantly learn & upgrade my skills.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>My Interests</h3>
+            <p>
+                • Coding & logic building.<br>
+                • Exploring new tech & frameworks.<br>
+                • Designing UI/UX layouts.<br>
+                • Hackathons & teamwork activities.<br>
+                • Reading about AI & innovation.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
