@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kruskal C++ Code</title>
+
+<style>
+  body {
+    margin:0;
+    background:linear-gradient(145deg,#000000,#0a1a3c);
+    font-family:'Poppins',sans-serif;
+    color:#e6eef8;
+    padding:40px;
+  }
+  .card {
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:14px;
+    padding:25px;
+    max-width:900px;
+    margin:auto;
+  }
+  h1 { color:#60a5fa; text-align:center; }
+  pre {
+    background:rgba(0,0,0,0.45);
+    padding:20px;
+    border-radius:10px;
+    color:#d7e6ff;
+    overflow-x:auto;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Kruskal Algorithm – Water Supply Network</h1>
+
+<pre>
+// C++ Program for Kruskal's Algorithm (MST)
+#include <bits/stdc++.h>
+using namespace std;
+
+class DSU {
+public:
+    int parent[1000], rankArr[1000];
+    
+    DSU(int n) {
+        for(int i=0;i<n;i++){
+            parent[i]=i;
+            rankArr[i]=0;
+        }
+    }
+
+    int find(int x){
+        if(parent[x]==x) return x;
+        return parent[x]=find(parent[x]);
+    }
+
+    void unite(int x,int y){
+        x=find(x);
+        y=find(y);
+        if(x!=y){
+            if(rankArr[x]<rankArr[y]) swap(x,y);
+            parent[y]=x;
+            if(rankArr[x]==rankArr[y]) rankArr[x]++;
+        }
+    }
+};
+
+int main(){
+    int V = 5;
+    vector<pair<int, pair<int,int>>> edges;
+
+    // cost, (u, v)
+    edges.push_back({10,{0,1}});
+    edges.push_back({8,{1,2}});
+    edges.push_back({5,{0,3}});
+    edges.push_back({3,{2,3}});
+    edges.push_back({7,{3,4}});
+    edges.push_back({6,{1,4}});
+
+    sort(edges.begin(), edges.end());
+
+    DSU dsu(V);
+    int mstCost = 0;
+
+    cout << "Pipelines Selected:\n";
+    for(auto e : edges){
+        int w = e.first;
+        int u = e.second.first;
+        int v = e.second.second;
+
+        if(dsu.find(u) != dsu.find(v)){
+            dsu.unite(u, v);
+            cout << u << " -- " << v << " (cost " << w << ")\n";
+            mstCost += w;
+        }
+    }
+
+    cout << "\nTotal Minimum Cost = " << mstCost << endl;
+    return 0;
+}
+</pre>
+</div>
+
+</body>
+</html>
