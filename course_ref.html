@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Reflection – DAA Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent:#60a5fa;
+      --glass:rgba(255,255,255,0.06);
+      --glass-border:rgba(255,255,255,0.15);
+      --text:#e6eef8;
+    }
+
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(145deg,#000000,#0a1a3c);
+      color:var(--text);
+      padding-top:130px; /* space for fixed navbar */
+    }
+
+    /* NAVBAR (same as other pages) */
+    .navbar {
+      position: fixed;
+      top:0; left:0; right:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 30px;
+      background: rgba(15,23,42,0.9);
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      z-index:1000;
+    }
+
+    .logo {
+      height:85px;
+    }
+
+    .nav-right a {
+      margin-left:22px;
+      text-decoration:none;
+      color:#cbd5e1;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .nav-right a:hover,
+    .nav-right .active {
+      color:var(--accent);
+    }
+
+    /* PAGE LAYOUT */
+    .page-container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      padding-bottom:50px;
+    }
+
+    .section-title {
+      text-align:center;
+      color:var(--accent);
+      font-size:36px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .section-subtitle {
+      text-align:center;
+      font-size:15px;
+      color:#cbd5e1;
+      margin-bottom:40px;
+    }
+
+    .grid-2 {
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .card {
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      padding:22px 24px;
+      border-radius:14px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      margin:0 0 10px 0;
+      font-size:22px;
+      color:var(--accent);
+    }
+
+    .card h3 {
+      margin:16px 0 6px 0;
+      font-size:17px;
+      color:#e5edff;
+    }
+
+    .card p {
+      margin:6px 0;
+      font-size:14px;
+      line-height:1.7;
+      color:#d7e6ff;
+    }
+
+    .card ul {
+      padding-left:18px;
+      margin:6px 0;
+      list-style:disc;
+    }
+
+    .card ul li {
+      margin-bottom:4px;
+      font-size:14px;
+      color:#d7e6ff;
+    }
+
+    .pill-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .pill {
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid var(--glass-border);
+      background:rgba(15,23,42,0.8);
+      font-size:13px;
+      color:#d7e6ff;
+    }
+
+    @media(max-width:900px){
+      .grid-2 {
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <img src="kle_tech.png" class="logo" alt="logo">
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="aboutcourse.html">About Course</a>
+      <a href="coursereflection.html" class="active">Course Reflection</a>
+      <a href="courseproject.html">Course Project</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-container">
+
+    <h1 class="section-title">Course Reflection</h1>
+    <p class="section-subtitle">
+      My experience and learning journey in the Design and Analysis of Algorithms course.
+    </p>
+
+    <!-- BEFORE THE COURSE + KEY CONCEPTS -->
+    <div class="grid-2">
+      <section class="card">
+        <h2>Before the Course</h2>
+        <p>
+          At the beginning of the semester, I saw algorithms mainly as pieces of code that solve problems, 
+          without thinking deeply about how efficient they are. I was comfortable with basic data 
+          structures like arrays, stacks, and queues, but I was not very confident about complexity 
+          analysis, proofs, or mathematical reasoning behind algorithms.
+        </p>
+        <p>
+          I expected the course to be challenging, especially topics involving recursion, 
+          recurrence relations, and abstract concepts such as complexity classes. At the same time, 
+          I hoped that this subject would give me a strong foundation for coding rounds, technical 
+          interviews, and future computer science courses.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Snapshot of My Learning</h2>
+        <ul>
+          <li>Stronger understanding of time and space complexity.</li>
+          <li>Ability to design algorithms using divide and conquer, greedy, and dynamic programming techniques.</li>
+          <li>Better intuition for choosing appropriate data structures for a given problem.</li>
+          <li>Awareness of hard problems such as NP-complete problems and their limitations.</li>
+        </ul>
+        <div class="pill-row">
+          <div class="pill">Problem solving</div>
+          <div class="pill">Logical thinking</div>
+          <div class="pill">Optimization</div>
+          <div class="pill">Interview prep</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- WHAT I LEARNED -->
+    <section class="card">
+      <h2>What I Learned</h2>
+
+      <h3>Algorithm Analysis</h3>
+      <p>
+        I learned how to measure the performance of algorithms using time and space complexity. 
+        Concepts like best, worst, and average case analysis, as well as notations such as Big-O, 
+        Big-Theta, and Big-Omega, helped me compare algorithms beyond just “it works” and focus 
+        on how they scale with input size.
+      </p>
+
+      <h3>Design Techniques</h3>
+      <p>
+        The course introduced different ways to design algorithms for a problem. 
+        With divide and conquer, I saw how breaking a problem into subproblems leads to efficient 
+        solutions like merge sort and quick sort. Using greedy strategies, I solved problems such as 
+        activity selection and minimum spanning trees, and I understood when local choices lead to 
+        a globally optimal result.
+      </p>
+      <p>
+        Dynamic programming was one of the most impactful topics, where I learned to use overlapping 
+        subproblems and optimal substructure. Problems like knapsack, longest increasing subsequence, 
+        and matrix chain multiplication showed me how storing intermediate results can drastically 
+        improve performance compared to naive recursion.
+      </p>
+
+      <h3>Complexity and Hard Problems</h3>
+      <p>
+        I was also introduced to complexity classes like P, NP, and NP-complete. 
+        Understanding that some problems, such as the traveling salesman problem, currently have no 
+        known polynomial-time algorithm made me realize why approximations and heuristics are necessary 
+        in real-world applications.
+      </p>
+    </section>
+
+    <!-- CHALLENGES + GROWTH -->
+    <div class="grid-2">
+      <section class="card">
+        <h2>Challenges I Faced</h2>
+        <p>
+          In the beginning, I struggled to convert word problems into clear algorithmic steps. 
+          I sometimes tried to memorize algorithms instead of understanding the idea behind them, 
+          which made it hard to apply them in new situations.
+        </p>
+        <p>
+          Distinguishing when to use a greedy approach versus dynamic programming was also confusing. 
+          Tracing recursion and solving recurrence relations took extra effort, and debugging logic 
+          errors in longer algorithms was time-consuming.
+        </p>
+        <p>
+          To overcome these challenges, I started drawing recursion trees, dry-running my code on 
+          small examples, and discussing doubts with friends and faculty. Practising extra questions 
+          from online platforms gradually built my confidence.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>How I Grew</h2>
+        <p>
+          As the course progressed, my approach to problems became more structured. 
+          I learned to first analyze constraints, decide on a suitable strategy, and only then begin 
+          coding. This habit helped me write cleaner and more efficient solutions.
+        </p>
+        <p>
+          My logical thinking and decomposition skills improved, and I became more comfortable 
+          working under time limits in labs and tests. Presenting algorithm ideas to others and 
+          explaining the reasoning behind them also strengthened my communication skills.
+        </p>
+      </section>
+    </div>
+
+    <!-- PROJECT REFLECTION -->
+    <section class="card">
+      <h2>Reflection on My Project</h2>
+      <p>
+        In the course project, I selected a problem that allowed me to apply the concepts learned 
+        in class. While designing the solution, I had to carefully choose the right data structures 
+        and algorithmic techniques, and I analysed the time and space complexity of my approach.
+      </p>
+      <p>
+        Implementing the project taught me how theoretical concepts such as greedy strategies, 
+        dynamic programming, or graph algorithms translate into real code. I also learned the 
+        importance of testing with different input sizes and edge cases to verify both correctness 
+        and efficiency. If I redo the project in the future, I would like to experiment with 
+        alternative algorithms and further optimize the performance.
+      </p>
+    </section>
+
+    <!-- FUTURE PLANS -->
+    <section class="card" style="margin-top:30px;">
+      <h2>Looking Ahead</h2>
+      <p>
+        This course has given me a strong foundation in designing and analysing algorithms, which is 
+        essential for software development and coding interviews. I plan to continue practising 
+        problems on online judges and revising important patterns such as recursion, dynamic 
+        programming, and graph algorithms.
+      </p>
+      <p>
+        In future projects, I want to apply these ideas to build efficient and scalable applications. 
+        My goal is to keep improving my problem-solving skills so that I can perform well in technical 
+        interviews and contribute effectively to real-world software systems.
+      </p>
+    </section>
+
+  </div>
+</body>
+</html>
