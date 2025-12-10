@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A* Search C++ Code</title>
+
+<style>
+  body{
+    margin:0;
+    background:linear-gradient(145deg,#000000,#0a1a3c);
+    font-family:'Poppins',sans-serif;
+    color:#e6eef8;
+    padding:40px;
+  }
+  .card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:14px;
+    padding:25px;
+    max-width:900px;
+    margin:auto;
+  }
+  h1{color:#60a5fa;text-align:center;}
+  pre{
+    background:rgba(0,0,0,0.45);
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#d7e6ff;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>A* Search – Drone Delivery Routing</h1>
+<pre>
+// C++ Program for A* Search Algorithm
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node{
+    int x, y, cost, heuristic;
+    bool operator<(const Node &other) const {
+        return (cost + heuristic) > (other.cost + other.heuristic);
+    }
+};
+
+int heuristic(int x1,int y1,int x2,int y2){
+    return abs(x1 - x2) + abs(y1 - y2); // Manhattan distance
+}
+
+int main(){
+    int n=5;
+    int grid[5][5] = {
+        {1,1,1,1,1},
+        {1,999,999,1,1},
+        {1,1,1,1,1},
+        {1,1,999,999,1},
+        {1,1,1,1,1}
+    };
+
+    int sx=0, sy=0;   
+    int ex=4, ey=4;   
+
+    priority_queue<Node> pq;
+    pq.push({sx,sy,0, heuristic(sx,sy,ex,ey)});
+    
+    int visited[5][5]={0};
+    
+    while(!pq.empty()){
+        Node curr = pq.top(); pq.pop();
+
+        if(visited[curr.x][curr.y]) continue;
+        visited[curr.x][curr.y]=1;
+
+        if(curr.x==ex && curr.y==ey){
+            cout << "Minimum cost path: " << curr.cost << endl;
+            return 0;
+        }
+
+        int dx[4]={1,-1,0,0};
+        int dy[4]={0,0,1,-1};
+
+        for(int i=0;i<4;i++){
+            int nx=curr.x+dx[i];
+            int ny=curr.y+dy[i];
+            if(nx>=0 && ny>=0 && nx<n && ny<n && !visited[nx][ny]){
+                pq.push({nx,ny,curr.cost+grid[nx][ny], heuristic(nx,ny,ex,ey)});
+            }
+        }
+    }
+    return 0;
+}
+</pre>
+</div>
+
+</body>
+</html>
