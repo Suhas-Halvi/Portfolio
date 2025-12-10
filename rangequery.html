@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Array Range Queries C++ Code</title>
+<style>
+body{margin:0;background:linear-gradient(145deg,#000000,#0a1a3c);font-family:'Poppins',sans-serif;color:#e6eef8;padding:40px;}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:25px;max-width:900px;margin:auto;}
+h1{color:#60a5fa;text-align:center;}
+pre{background:rgba(0,0,0,0.45);padding:20px;border-radius:10px;overflow-x:auto;color:#d7e6ff;}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Array Range Queries – Air Pollution Analysis</h1>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int pollution[] = {50, 60, 55, 70, 65};
+    int n = 5;
+
+    int prefix[n+1];
+    prefix[0]=0;
+    for(int i=0;i&lt;n;i++)
+        prefix[i+1]=prefix[i]+pollution[i];
+
+    int l=1, r=3; // query 1-based
+    cout &lt;&lt; "Average pollution from day " &lt;&lt; l &lt;&lt; " to " &lt;&lt; r &lt;&lt; ": "
+         &lt;&lt; (prefix[r]-prefix[l-1])/(r-l+1) &lt;&lt; endl;
+}
+</pre>
+</div>
+</body>
+</html>

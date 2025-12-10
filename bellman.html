@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bellman-Ford C++ Code</title>
+<style>
+body{margin:0;background:linear-gradient(145deg,#000000,#0a1a3c);font-family:'Poppins',sans-serif;color:#e6eef8;padding:40px;}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:25px;max-width:900px;margin:auto;}
+h1{color:#60a5fa;text-align:center;}
+pre{background:rgba(0,0,0,0.45);padding:20px;border-radius:10px;overflow-x:auto;color:#d7e6ff;}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Bellman-Ford – Flood Evacuation</h1>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+struct Edge {
+    int u, v, w;
+};
+
+int main() {
+    int V = 5, E = 7;
+    vector<Edge> edges = {
+        {0,1,6},{0,2,7},{1,2,8},{1,3,5},{1,4,-4},{2,3,-3},{3,1,-2}
+    };
+
+    vector<int> dist(V, INT_MAX);
+    dist[0]=0;
+
+    for(int i=0;i&lt;V-1;i++){
+        for(auto e:edges){
+            if(dist[e.u]!=INT_MAX && dist[e.u]+e.w &lt; dist[e.v])
+                dist[e.v]=dist[e.u]+e.w;
+        }
+    }
+
+    for(int i=0;i&lt;V;i++)
+        cout &lt;&lt; "Node " &lt;&lt; i &lt;&lt; ": " &lt;&lt; dist[i] &lt;&lt; endl;
+}
+</pre>
+</div>
+</body>
+</html>

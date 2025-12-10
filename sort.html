@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorting C++ Code</title>
+<style>
+body{margin:0;background:linear-gradient(145deg,#000000,#0a1a3c);font-family:'Poppins',sans-serif;color:#e6eef8;padding:40px;}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:25px;max-width:900px;margin:auto;}
+h1{color:#60a5fa;text-align:center;}
+pre{background:rgba(0,0,0,0.45);padding:20px;border-radius:10px;overflow-x:auto;color:#d7e6ff;}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Sorting – Smart Parking Lot Management</h1>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+struct Car {
+    string plate;
+    int arrival;
+};
+
+bool cmp(Car a, Car b){ return a.arrival &lt; b.arrival; }
+
+int main(){
+    vector&lt;Car&gt; cars = { {"AB123",10}, {"XY987",5}, {"CD456",7} };
+    sort(cars.begin(), cars.end(), cmp);
+    for(auto c: cars)
+        cout &lt;&lt; c.plate &lt;&lt; " arrives at " &lt;&lt; c.arrival &lt;&lt; endl;
+}
+</pre>
+</div>
+</body>
+</html>

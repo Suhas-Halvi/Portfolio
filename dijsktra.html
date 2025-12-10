@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dijkstra C++ Code – Smart Tour Routing</title>
+<style>
+body{
+    margin:0;
+    background:linear-gradient(145deg,#000000,#0a1a3c);
+    font-family:'Poppins',sans-serif;
+    color:#e6eef8;
+    padding:40px;
+}
+.card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:14px;
+    padding:25px;
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    color:#60a5fa;
+    text-align:center;
+}
+pre{
+    background:rgba(0,0,0,0.45);
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#d7e6ff;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Smart Tour Routing – Dijkstra Algorithm</h1>
+
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+// Graph storing adjacency list: attraction -> {adjacent attraction, walking time}
+vector&lt;pair&lt;int,int&gt;&gt; graph[100];
+
+void dijkstra(int src, int n) {
+    vector&lt;int&gt; dist(n, INT_MAX);
+    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
+
+    dist[src] = 0;
+    pq.push({0, src});
+
+    while (!pq.empty()) {
+        auto [d, u] = pq.top();
+        pq.pop();
+        if (d != dist[u]) continue;
+
+        for (auto &edge : graph[u]) {
+            int v = edge.first;
+            int w = edge.second;
+
+            if (dist[u] + w &lt; dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+    cout &lt;&lt; "Fastest walking time from selected starting attraction:\\n";
+    for (int i = 0; i &lt; n; i++) {
+        cout &lt;&lt; "Attraction " &lt;&lt; i &lt;&lt; " : " &lt;&lt; dist[i] &lt;&lt; " minutes\\n";
+    }
+}
+
+int main() {
+    int n = 6; 
+    // Attractions: 0–Museum, 1–Park, 2–Temple, 3–Fort, 4–Lake, 5–Shopping Street
+
+    graph[0].push_back({1, 10});
+    graph[1].push_back({0, 10});
+
+    graph[1].push_back({2, 15});
+    graph[2].push_back({1, 15});
+
+    graph[0].push_back({3, 30});
+    graph[3].push_back({0, 30});
+
+    graph[2].push_back({3, 5});
+    graph[3].push_back({2, 5});
+
+    graph[3].push_back({4, 20});
+    graph[4].push_back({3, 20});
+
+    graph[4].push_back({5, 12});
+    graph[5].push_back({4, 12});
+
+    graph[2].push_back({5, 25});
+    graph[5].push_back({2, 25});
+
+    int start_attraction = 0; // Museum
+    dijkstra(start_attraction, n);
+}
+</pre>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Binary Tree – City Library Digital Book Index</title>
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(145deg,#000000,#0a1a3c);
+    font-family:'Poppins',sans-serif;
+    color:#e6eef8;
+    padding:40px;
+}
+.card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:14px;
+    padding:25px;
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    color:#60a5fa;
+    text-align:center;
+}
+pre{
+    background:rgba(0,0,0,0.45);
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#d7e6ff;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+<h1>Binary Tree – City Library Digital Book Index</h1>
+
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+struct Node {
+    string book;
+    Node* left;
+    Node* right;
+
+    Node(string b) {
+        book = b;
+        left = right = NULL;
+    }
+};
+
+// Insert book into BST
+Node* insertBook(Node* root, string bookName) {
+    if (root == NULL)
+        return new Node(bookName);
+
+    if (bookName < root->book)
+        root->left = insertBook(root->left, bookName);
+    else
+        root->right = insertBook(root->right, bookName);
+
+    return root;
+}
+
+// Search for a book
+bool searchBook(Node* root, string key) {
+    if (root == NULL) return false;
+    if (root->book == key) return true;
+
+    if (key < root->book)
+        return searchBook(root->left, key);
+    else
+        return searchBook(root->right, key);
+}
+
+// Display books alphabetically
+void inorder(Node* root) {
+    if (root == NULL) return;
+    inorder(root->left);
+    cout &lt;&lt; root->book &lt;&lt; endl;
+    inorder(root->right);
+}
+
+int main() {
+    Node* root = NULL;
+
+    // Sample Book List
+    vector&lt;string&gt; books = {
+        "Data Structures",
+        "Operating Systems",
+        "Machine Learning",
+        "Networking Basics",
+        "C++ Programming",
+        "Digital Logic"
+    };
+
+    // Insert books into the BST
+    for (string b : books)
+        root = insertBook(root, b);
+
+    cout &lt;&lt; "Books in Library (Alphabetical Order):\n";
+    inorder(root);
+
+    string searchKey = "Machine Learning";
+    cout &lt;&lt; "\nSearching for: " &lt;&lt; searchKey &lt;&lt; endl;
+
+    if (searchBook(root, searchKey))
+        cout &lt;&lt; "Book FOUND in library index\n";
+    else
+        cout &lt;&lt; "Book NOT FOUND\n";
+
+    return 0;
+}
+</pre>
+
+</div>
+
+</body>
+</html>
