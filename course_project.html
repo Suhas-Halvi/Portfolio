@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Project – DAA Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent:#60a5fa;
+      --glass:rgba(255,255,255,0.06);
+      --glass-border:rgba(255,255,255,0.15);
+      --text:#e6eef8;
+    }
+
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(145deg,#000000,#0a1a3c);
+      color:var(--text);
+      padding-top:130px;
+    }
+
+    /* NAVBAR – same as course reflection */
+    .navbar {
+      position: fixed;
+      top:0; left:0; right:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 30px;
+      background: rgba(15,23,42,0.9);
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      z-index:1000;
+    }
+
+    .logo {
+      height:85px;
+    }
+
+    .nav-right a {
+      margin-left:22px;
+      text-decoration:none;
+      color:#cbd5e1;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .nav-right a:hover,
+    .nav-right .active {
+      color:var(--accent);
+    }
+
+    /* PAGE */
+    .page-container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      padding-bottom:50px;
+    }
+
+    .section-title {
+      text-align:center;
+      color:var(--accent);
+      font-size:36px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .section-subtitle {
+      text-align:center;
+      font-size:15px;
+      color:#cbd5e1;
+      margin-bottom:40px;
+    }
+
+    /* BUSINESS CASE CARDS */
+    .project-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .card {
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      padding:22px 24px;
+      border-radius:14px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      margin:0 0 8px 0;
+      font-size:22px;
+      color:var(--accent);
+    }
+
+    .card h3 {
+      margin:10px 0 6px 0;
+      font-size:17px;
+      color:#e5edff;
+    }
+
+    .card p, .card li {
+      font-size:14px;
+      line-height:1.6;
+      color:#d7e6ff;
+      margin:6px 0;
+    }
+
+    .btn {
+      display:inline-block;
+      margin-top:12px;
+      padding:8px 16px;
+      background:var(--accent);
+      color:#000;
+      border-radius:8px;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.2s;
+    }
+
+    .btn:hover {
+      background:#3b82f6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <img src="kle_tech.png" class="logo" alt="logo">
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="aboutcourse.html">About Course</a>
+      <a href="coursereflection.html">Course Reflection</a>
+      <a href="courseproject.html" class="active">Course Project</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </nav>
+
+  <!-- MAIN PAGE -->
+  <div class="page-container">
+
+    <h1 class="section-title">Course Project</h1>
+    <p class="section-subtitle">
+      Real-world business cases implemented using algorithmic techniques.
+    </p>
+
+    <!-- BUSINESS CASE CARDS -->
+    <div class="project-grid">
+
+      <!-- 1 -->
+      <section class="card">
+        <h2>City Water Supply Network</h2>
+        <h3>Algorithm: Kruskal's (Minimum Spanning Tree)</h3>
+        <p>Used to build the most cost-efficient water pipeline network by minimizing total pipe length.</p>
+        <p><strong>Time Complexity:</strong> O(E log E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <a class="btn" href="kruskal.html">View C++ Code</a>
+
+      </section>
+
+      <!-- 2 -->
+      <section class="card">
+        <h2>Dynamic Drone-Based Medical Supply Routing</h2>
+        <h3>Algorithm: A* Search</h3>
+        <p>Finds the fastest and safest route for emergency drone deliveries using heuristic-based pathfinding.</p>
+        <p><strong>Time Complexity:</strong> O(E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <a class="btn" href="astar.html">View C++ Code</a>
+      </section>
+
+      <!-- 3 -->
+      <section class="card">
+        <h2>Flood Zone Prediction & Evacuation Paths</h2>
+        <h3>Algorithm: Bellman–Ford</h3>
+        <p>Predicts risk zones and computes safe evacuation routes considering negative risk factors.</p>
+        <p><strong>Time Complexity:</strong> O(V · E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <a class="btn" href="bellman.html">View C++ Code</a>
+      </section>
+
+   
+
+    <!-- 4 -->
+<section class="card">
+  <h2>Smart Tour Routing Between City Attractions</h2>
+  <h3>Technique: Dijkstra’s Algorithm</h3>
+  <p>Finds the shortest and most efficient route between major tourist spots using weighted graph traversal.</p>
+  <p><strong>Time Complexity:</strong> O((V + E) log V)</p>
+  <p><strong>Space Complexity:</strong> O(V)</p>  
+  <a class="btn" href="dijsktra.html">View C++ Code</a>
+</section>
+
+
+      <!-- 5 -->
+      <section class="card">
+        <h2>Smart Parking Lot Management</h2>
+        <h3>Technique: Sorting</h3>
+        <p>Sorts vehicles based on arrival time, priority, or slot distance to optimize parking flow.</p>
+        <p><strong>Time Complexity:</strong> O(n log n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <a class="btn" href="sort.html">View C++ Code</a>
+      </section>
+
+      <!-- 6 -->
+      <section class="card">
+        <h2>Smart Garbage Collection Priority System</h2>
+        <h3>Data Structure: Heap</h3>
+        <p>Uses a priority queue to dispatch garbage trucks based on waste level urgency.</p>
+        <p><strong>Time Complexity:</strong> O(log n) per operation</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <a class="btn" href="heap.html">View C++ Code</a>
+      </section>
+<!-- 7 -->
+<section class="card">
+  <h2>City Library Digital Book Index</h2>
+  <h3>Technique: Binary Tree</h3>
+  <p>Organizes books efficiently using a binary search tree for fast searching, insertion, and sorting of digital records.</p>
+  <p><strong>Time Complexity:</strong> O(log n) average, O(n) worst case</p>
+  <p><strong>Space Complexity:</strong> O(n)</p>
+  <a class="btn" href="binary_tree.html">View C++ Code</a>
+</section>
+
+
+      <!-- 8 -->
+      <section class="card">
+        <h2>Air Pollution Range Analysis</h2>
+        <h3>Technique: Array Range Queries</h3>
+        <p>Queries pollution levels across city zones using efficient prefix/suffix array structures.</p>
+        <p><strong>Time Complexity:</strong> O(1) per query (after preprocessing)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <a class="btn" href="rangequery.html">View C++ Code</a>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>
